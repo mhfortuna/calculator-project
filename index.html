@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator</title>
     <link rel="stylesheet" href="assets/mystyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     <script src="assets/script.js"></script>
@@ -13,9 +13,9 @@
         <!-- BUTTONS BAR -->
         <div class="top-bar">
             <div>
-                <div class="btn-colors"></div>
-                <div class="btn-colors"></div>
-                <div class="btn-colors"></div>
+                <div class="btn-colors" id="close-button" onclick="closeWindow()"></div>
+                <div class="btn-colors" id="minimize-button" onclick="minimizeWindow()"></div>
+                <div class="btn-colors" id="maximize-button" onclick="maximizeWindow()"></div>
             </div>
             <div class="btn-aspect-container-bright">
                 <div class="btn-aspect-bright" onclick="darkBright(event)"></div>
@@ -43,7 +43,7 @@
             <div class="button-operation color-comb1"onclick="buttonOperation(event)"><span>+</span></div>
             <div class="button-number color-comb-nums"onclick="numButtonFunction(event)"><span>0</span></div>
             <div class="button-number color-comb-nums"onclick="numButtonFunction(event)"><span>.</span></div>
-            <div></div>
+            <span></span>
             <div class="button-equal-sign color-button-equal"onclick="buttonEqual(event)"><span>=</span></div>
         </div>
     </main>
