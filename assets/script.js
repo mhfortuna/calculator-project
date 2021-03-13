@@ -5,7 +5,7 @@ function darkBright(event) {
         document.getElementsByClassName("color-button-container-bright")[0].classList.replace("color-button-container-bright","color-button-container-dark");
         document.getElementsByClassName("color-comb1-bright")[0].classList.replace("color-comb1-bright","color-comb1-dark");
         document.getElementsByClassName("color-calculator-bright")[0].classList.replace("color-calculator-bright","color-calculator-dark");
-        document.getElementsByClassName("btn-aspect-container-bright")[0].classList.replace("btn-aspect-container-bright","btn-aspect-container-dark"); 
+        document.getElementsByClassName("btn-aspect-container-bright")[0].classList.replace("btn-aspect-container-bright","btn-aspect-container-dark");
         document.getElementsByClassName("btn-aspect-bright")[0].classList.replace("btn-aspect-bright","btn-aspect-dark");
     } else {
         /* TO DARK */
@@ -34,26 +34,26 @@ var isTotal = false;
 /* Function of number keys */
 function numButtonFunction(event) {
     if (event.target.innerHTML == ".") {
-        if (stringScreen.includes(".")) {
+        if (stringScreen.includes(".")) { /* Verify if point already exists */
             return;
         }
     }
-    if (isTotal == true) {
+    if (isTotal == true) { /* Was the equal pressed before? */
         stringScreen = "";
         document.querySelector(".screen").innerHTML = stringScreen;
         isTotal = false;
     }
     if (event.target.innerHTML == "." && stringScreen == "") {
-        stringScreen = "0.";
+        stringScreen = "0."; /* To avoid NaN when operating with . */
     } else {
         stringScreen += event.target.innerHTML;
     }
     document.querySelector(".screen").innerHTML = stringScreen;
-    document.getElementsByClassName("screen")[0].style.fontSize = getFontSize(document.getElementsByClassName("screen")[0].textContent.length);
+    document.getElementsByClassName("screen")[0].style.fontSize = getFontSize(document.getElementsByClassName("screen")[0].textContent.length);/* Screen font size */
 }
 /* Function of operation keys */
 function buttonOperation(event){
-    if (stringScreen == ""||stringScreen == "-"){
+    if (stringScreen == ""||stringScreen == "-"){ /* Change operation when no number is pressed */
         if (row > 0){
             switch (event.target.innerHTML) {
                 case "+":
@@ -78,22 +78,19 @@ function buttonOperation(event){
     }else{
         switch (event.target.innerHTML) {
             case "+":
-                numbers[row] = parseFloat(stringScreen);
                 operations[row] = "+";
             break;
             case "−": /* It isn't a mid bar, it is a minus symbol */
-                numbers[row] = parseFloat(stringScreen);
                 operations[row] = "-"; /* This one is the normal symbol */
             break;
             case "x":
-                numbers[row] = parseFloat(stringScreen);
                 operations[row] = "x";
             break;
             case "÷":
-                numbers[row] = parseFloat(stringScreen);
                 operations[row] = "÷";
             break;
         }
+        numbers[row] = parseFloat(stringScreen);
         console.log(numbers[row] +" "+ operations[row]);
         row += 1;
         stringScreen = "";
@@ -127,7 +124,6 @@ function buttonPercentage(){
 }
 /* Button for equal-result */
 function buttonEqual () {
-    /* TODO */
     if (Number.isNaN(parseFloat(stringScreen))) {
         operations = operations.slice(0,operations.length-1);
         console.log(numbers[row-1]);
@@ -146,7 +142,6 @@ function buttonEqual () {
                 break;
             case "÷":
                 if (numbers[i + 1] == 0){
-                    /* i = operations.length; */
                     stringScreen = "";
                     document.querySelector(".screen").innerHTML = "ERROR";
                     numbers = [];
@@ -166,34 +161,13 @@ function buttonEqual () {
     console.log('Result is: ' + subtotal);
     stringScreen = subtotal.toString();
     document.querySelector(".screen").innerHTML = stringScreen;
+    document.getElementsByClassName("screen")[0].style.fontSize = getFontSize(document.getElementsByClassName("screen")[0].textContent.length);/* Screen font size */
     numbers = [];
     operations = [];
     row = 0;
     isTotal = true;
 }
 /* WINDOW FUNCTION BUTTONS */
-function minimizeWindow () {
-	window.resizeBy(
-        window.screen.availWidth / 2,
-        window.screen.availHeight / 2
-    );
-
-}
 function closeWindow () {
     window.close();
 }
-function maximizeWindow () {
-    window.innerWidth = screen.width;
-    window.innerHeight = screen.height;
-    window.screenX = 0;
-    window.screenY = 0;
-    alwaysLowered = false;
-}
-
-
-
-/* TODO
-- presentacion
-- transicion btn-aspect
-- botones ventana
-*/

@@ -1,5 +1,5 @@
 html{
-     font-size: 100%;
+    font-size: 100%;
 }
 body{
     background-color: #9FCDBE;
@@ -12,7 +12,6 @@ body{
     box-sizing: border-box;
 }
 .button-container{
-    /*  width: 100%;*/
     height: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -26,29 +25,22 @@ body{
     align-items: center;
     justify-content: center;
     height: 100%;
-    /* padding: 4%; */
-   /*  margin:6%; */
 }
 .button-container>*{
     width: 100%;
     height: 100%;
 }
 .color-button-container-bright>div:hover{
-    /* box-shadow: inset 0 0 1.5px rgb(228, 228, 228);
-    border: solid rgb(228, 228, 228) 1px; */
     transition-duration: 0.5s;
     background-color:  #18d4a252;
 }
 .color-button-container-dark>div:hover{
-    /* box-shadow: inset 0 0 1.5px rgb(228, 228, 228);
-    border: solid rgb(228, 228, 228) 1px; */
     transition-duration: 0.5s;
     background-color:  #18d4a252;
     color:white;
 }
 .button-number{
     border-radius: 50%;
-    /* color: #819290; */
     text-align: center;
 }
 .button-operation{
@@ -78,7 +70,6 @@ body{
     -moz-box-shadow: 0px 0px 14px 4px rgba(112, 112, 112);
     box-shadow: 0px 0px 14px 4px rgb(112, 112, 112);
 }
-
 .top-bar{
     display: grid;
     grid-template-columns: 6fr 1fr;
@@ -95,6 +86,7 @@ body{
     font-size: 72px;
     height: 100px;
     text-align: right;
+    overflow: hidden;
 }
 .btn-aspect-container-dark{
     width: 40px;
@@ -133,7 +125,6 @@ body{
     background-color: red;
     display: inline-block;
     margin: auto 6px;
-    /* TODO dar colores */
 }
 .color-calculator-dark{
     background-color: #212B41;
